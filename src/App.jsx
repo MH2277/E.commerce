@@ -14,6 +14,7 @@ import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import { CounterContextProvider } from './Context/UserContext';
 import { TokenContextProvider } from './Context/TokenContext';
+import ProtectedRout from './Component/ProtectedRout/ProtectedRout';
 
 
 
@@ -22,11 +23,11 @@ function App() {
     {
       path: '', element: <MainBage />, children: [
 
-        { index: true, element: <Home /> },
-        { path: 'Products', element: <Products /> },
-        { path: 'Cart', element: <Cart /> },
-        { path: 'Categories', element: <Categories /> },
-        { path: 'Brands', element: <Brands /> },
+        { index: true, element:<ProtectedRout> <Home /></ProtectedRout> },
+        { path: 'Products', element: <ProtectedRout> <Products /></ProtectedRout>},
+        { path: 'Cart', element: <ProtectedRout> <Cart /></ProtectedRout> },
+        { path: 'Categories', element: <ProtectedRout> <Categories /></ProtectedRout> },
+        { path: 'Brands', element:<ProtectedRout> <Brands /></ProtectedRout> },
         { path: 'Register', element: <Register /> },
         { path: 'Login', element: <Login /> }
 

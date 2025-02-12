@@ -1,4 +1,4 @@
-import { createContext,useState } from "react";
+import { createContext,useState,useEffect } from "react";
 
 export let TokenContext=createContext()
 
@@ -7,6 +7,18 @@ export function TokenContextProvider(props) {
 
 
 const [token, setToken] = useState(null)
+
+useEffect(() => {
+  if(localStorage.getItem('token')){
+    setToken(localStorage.getItem('token'))
+    
+  }
+
+  return () => {
+    
+  }
+}, [])
+
 
 
     return (

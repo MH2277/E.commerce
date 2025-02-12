@@ -4,7 +4,7 @@ import { useFormik, yupToFormErrors } from "formik"
 import axios from 'axios'
 import * as Yup from "yup"
 import { FaSpinner } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { TokenContext } from '../../Context/TokenContext';
 
 
@@ -19,23 +19,22 @@ export default function Login() {
   let { setToken } = useContext(TokenContext)
 
 
-  async function handleRegister(x) {
+  async function handleLogin(x) {
     setLoading(true)
 
 
     await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', x)
       .then((apiResponse) => {
         console.log(apiResponse);
-
-        setToken(response.data.token)
-        localStorage.setItem('token',response.data.token)
+        setToken(apiResponse.data.token)
+        localStorage.setItem('token', apiResponse.data.token)
         setApiError(null)
         setLoading(false)
 
-        // navigate('/')
+        navigate('/')
 
 
-        
+
 
       })
       .catch(function (apiResponse) {
@@ -72,7 +71,7 @@ export default function Login() {
 
     },
     validationSchema: validationSchema,
-    onSubmit: handleRegister
+    onSubmit: handleLogin
 
 
   })
@@ -112,7 +111,8 @@ export default function Login() {
 
 
 
-          <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Login'}</button>
+          <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Login'}</button> 
+          <Link to={'/Register'}> creat new account</Link>
 
         </form>
 
