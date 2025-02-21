@@ -25,7 +25,6 @@ export default function Login() {
 
     await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', x)
       .then((apiResponse) => {
-        console.log(apiResponse);
         setToken(apiResponse.data.token)
         localStorage.setItem('token', apiResponse.data.token)
         setApiError(null)
@@ -84,39 +83,54 @@ export default function Login() {
 
     <>
 
-
-      <div className='p-5'>
-
-        {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null
-        }
-        <div><h2>Login Now :</h2></div>
+      <div className="row justify-content-center  align-items-center">
 
 
-        <form onSubmit={formik.handleSubmit} className=' bg-light w-75 justify-content-center d-flex flex-column'>
+        <div className="col-xl-6  p-5   ">
 
 
 
 
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">Email:</label>
-            <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" className="form-control form-control-sm" id="email" />
-          </div>
-          {formik.errors.email ? <div className="alert alert-danger " role="alert"> {formik.errors.email} </div> : null}
+          <div className="login  ">
 
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password:</label>
-            <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="password" />
-          </div>
-          {formik.errors.password ? <div className="alert alert-danger " role="alert">{formik.errors.password} </div> : null}
+            <h2 className='w-75 '>Login Now :</h2>
+            {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null} </div >
+
+
+          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 ' >
 
 
 
-          <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Login'}</button> 
-          <Link to={'/Register'}> creat new account</Link>
 
-        </form>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Email:</label>
+              <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" className="form-control form-control-sm" id="email" />
+            </div>
+            {formik.errors.email ? <div className="alert alert-danger " role="alert"> {formik.errors.email} </div> : null}
 
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password:</label>
+              <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="password" />
+            </div>
+            {formik.errors.password ? <div className="alert alert-danger " role="alert">{formik.errors.password} </div> : null}
+
+
+
+
+
+            <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Login'}</button>
+          </form>
+
+            <Link to={'Register'}> creat new account account</Link>
+
+          <div />
+
+
+
+
+        </div>
       </div>
+
 
 
 

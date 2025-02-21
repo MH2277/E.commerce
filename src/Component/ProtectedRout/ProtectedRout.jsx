@@ -8,8 +8,8 @@ import React from 'react'
 export default function ProtectedRout(props) {
 
 
-  if(localStorage.getItem('TokenContext')!==null){
-    return props.cheldrin
+  if(localStorage.getItem('token')!==null){
+    return props.children
 
   }
   else{ 

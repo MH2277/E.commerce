@@ -4,7 +4,12 @@ import Brands from "../Brands/Brands"
 import Cart from "../Cart/Cart"
 import Products from "../Products/Products"
 import style from "./Home.module.css"
-import { countConyext } from "../../Context/UserContext"
+import RecentProducts from "../../Component/RecentProducts/RecentProducts"
+import MainSlider from "../../Component/MainSlider/MainSlider"
+import CategorySlider from "../../Component/CategorySlider/CategorySlider"
+
+
+
 
 
 
@@ -13,16 +18,17 @@ import { countConyext } from "../../Context/UserContext"
 export default function Home() {
 
 
-   return (
+  return (
     <>
-    
-   
+      <MainSlider />
+      <CategorySlider />
 
-     
-   
+      <RecentProducts />
+
+
 
     </>
-   
+
 
   )
 }

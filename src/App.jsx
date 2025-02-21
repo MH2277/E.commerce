@@ -12,9 +12,11 @@ import Categories from "./Pages/Categories/Categories"
 import Cart from "./Pages/Cart/Cart"
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
-import { CounterContextProvider } from './Context/UserContext';
 import { TokenContextProvider } from './Context/TokenContext';
 import ProtectedRout from './Component/ProtectedRout/ProtectedRout';
+import NotFound from './Pages/NotFound/NotFound';
+import ProductDetails from './Component/ProductDetails/ProductDetails';
+
 
 
 
@@ -28,8 +30,14 @@ function App() {
         { path: 'Cart', element: <ProtectedRout> <Cart /></ProtectedRout> },
         { path: 'Categories', element: <ProtectedRout> <Categories /></ProtectedRout> },
         { path: 'Brands', element:<ProtectedRout> <Brands /></ProtectedRout> },
+        { path: 'ProductDetails/:id', element:<ProtectedRout> <ProductDetails /></ProtectedRout> },
         { path: 'Register', element: <Register /> },
-        { path: 'Login', element: <Login /> }
+        { path: 'Login', element: <Login /> },
+        { path: '*', element: <NotFound /> },
+
+        
+        
+
 
 
 
@@ -41,9 +49,7 @@ function App() {
   return (
     <>
       <TokenContextProvider>
-        <CounterContextProvider>
           <RouterProvider router={router}> </RouterProvider>
-        </CounterContextProvider>
       </TokenContextProvider>
 
 

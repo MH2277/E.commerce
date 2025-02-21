@@ -7,8 +7,8 @@ import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { countConyext } from '../../Context/UserContext';
 import { TokenContext } from '../../Context/TokenContext';
+import logo from '../../assets/logo.svg'
 
 
 
@@ -16,16 +16,16 @@ import { TokenContext } from '../../Context/TokenContext';
 
 export default function NavBar() {
 
-let navigate=useNavigate
-    let { counter1 } = useContext(countConyext)
-    let { token,setToken } = useContext(TokenContext)
+    let navigate = useNavigate
+
+    let { token, setToken } = useContext(TokenContext)
 
     function logoutUser() {
         localStorage.removeItem('token')
         navigate('Login')
         setToken(null)
-        
-        
+
+
     }
 
 
@@ -34,8 +34,17 @@ let navigate=useNavigate
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container">
-                    <a className="navbar-brand" >Navbar</a>
 
+                    <button className="navbar-toggler" type="button"
+                     data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                         aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div><img src={logo} alt="" /></div>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -81,7 +90,7 @@ let navigate=useNavigate
                             <div className='me-4'> <FaLinkedin /></div>
                             <div className='me-4'> <FaYoutube /></div>
 
-                            {token && <div><NavLink className='me-4 text-decoration-none text-dark' to={'Login'} onClick={()=>{logoutUser()}} >  SignOut</NavLink></div>}
+                            {token && <div><NavLink className='me-4 text-decoration-none text-dark' to={'Login'} onClick={() => { logoutUser() }} >  SignOut</NavLink></div>}
 
                             {!token &&
                                 <>

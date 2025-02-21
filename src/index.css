@@ -1,0 +1,62 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+
+
+.decoration{
+    text-decoration:none;
+    color: black;
+}
+
+.slick-prev::before, .slick-next::before {
+
+color: green !important;
+}
+
+
+
+
+
+.pic1{
+    height: 250px;
+
+    
+}
+
+
+.pic2{
+    height: 500px;
+
+
+}
+.product{
+    border:transparent
+}
+
+.p-hover:hover{
+    border: 2px  rgb(44, 204, 79) ;
+    border-style: solid;
+    border-radius: 10px;
+
+}
+
+.category-style{
+    height: 300px;
+
+}
+
+
+
+.product .btn{
+    transition: transform 1s,opcity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+
+}
+.product:hover .btn{
+    opacity: 1;
+   transform:  translateY(0);
+
+}

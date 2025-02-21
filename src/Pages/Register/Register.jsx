@@ -21,7 +21,7 @@ export default function Register() {
     setLoading(true)
 
 
-     await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup', x)
+    await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup', x)
       .then((apiResponse) => {
         setLoading(false)
         navigate('/Login')
@@ -76,66 +76,86 @@ export default function Register() {
 
 
   return (
-
-
-
     <>
 
 
-      <div className='p-5'>
-
-        {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null
-        }
-        <div><h2>Register Now :</h2></div>
-
-
-        <form onSubmit={formik.handleSubmit} className=' bg-light w-75 justify-content-center d-flex flex-column'>
 
 
 
-          <div className="mb-3  ">
-            <label htmlFor="name" className="form-label">Name:</label>
-            <input value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" className="form-control form-control-sm" id="name" />
-          </div>
-          {formik.errors.name ? <div className="alert alert-danger " role="alert">{formik.errors.name} </div> : null}
-
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">Email:</label>
-            <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" className="form-control form-control-sm" id="email" />
-          </div>
-          {formik.errors.email ? <div className="alert alert-danger " role="alert"> {formik.errors.email} </div> : null}
-
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password:</label>
-            <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="password" />
-          </div>
-          {formik.errors.password ? <div className="alert alert-danger " role="alert">{formik.errors.password} </div> : null}
+      <div className="row justify-content-center  align-items-center">
 
 
-          <div className="mb-3">
-            <label htmlFor="rePassword" className="form-label  " autoComplete="new-password">rePassword:</label>
-            <input value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="rePassword" />
-          </div>
-          {formik.errors.rePassword ? <div className="alert alert-danger " role="alert">{formik.errors.rePassword} </div> : null}
+        <div className="col-xl-6  p-5   ">
 
 
-          <div className="mb-3">
-            <label htmlFor="phone" className="form-label" >Phone:</label>
-            <input value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur} type="tel" className="form-control form-control-sm" id="phone" />
-          </div>
-          {formik.errors.phone ? <div className="alert alert-danger " role="alert">{formik.errors.phone} </div> : null}
 
 
-          <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Submit'}</button>
+          <div className="regester  ">
 
-        </form>
+            <h2 className='w-75 '>Register Now :</h2>
+            {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null} </div >
 
+
+          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 ' >
+
+
+
+            <div className="mb-3  ">
+              <label htmlFor="name" className="form-label">Name:</label>
+              <input value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" className="form-control form-control-sm" id="name" />
+            </div>
+            {formik.errors.name ? <div className="alert alert-danger " role="alert">{formik.errors.name} </div> : null}
+
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Email:</label>
+              <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} type="email" className="form-control form-control-sm" id="email" />
+            </div>
+            {formik.errors.email ? <div className="alert alert-danger " role="alert"> {formik.errors.email} </div> : null}
+
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password:</label>
+              <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="password" />
+            </div>
+            {formik.errors.password ? <div className="alert alert-danger " role="alert">{formik.errors.password} </div> : null}
+
+
+            <div className="mb-3">
+              <label htmlFor="rePassword" className="form-label  " autoComplete="new-password">rePassword:</label>
+              <input value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete="" type="password" className="form-control form-control-sm" id="rePassword" />
+            </div>
+            {formik.errors.rePassword ? <div className="alert alert-danger " role="alert">{formik.errors.rePassword} </div> : null}
+
+
+            <div className="mb-3">
+              <label htmlFor="phone" className="form-label" >Phone:</label>
+              <input value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur} type="tel" className="form-control form-control-sm" id="phone" />
+            </div>
+            {formik.errors.phone ? <div className="alert alert-danger " role="alert">{formik.errors.phone} </div> : null}
+
+
+            <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Submit'}</button>
+
+          </form>
+
+
+          <div />
+
+
+
+
+        </div>
       </div>
 
 
 
 
 
-    </>)
+
+
+
+
+    </>
+
+  )
 
 }
