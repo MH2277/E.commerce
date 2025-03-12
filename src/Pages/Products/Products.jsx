@@ -151,7 +151,7 @@ export default function Products() {
                     onClick={() => toggleWishlist(product._id)}
                     className="position-absolute top-1 end-2 fs-5 heart text-black "
                   >
-                    {wishListProductsClicked.includes(product._id) ? <FaHeart className='text-red-500' /> : <FaRegHeart />}
+                    {wishListProductsClicked?.includes(product._id) ? <FaHeart className='text-red-500' /> : <FaRegHeart />}
 
                   </button>
 
