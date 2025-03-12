@@ -44,7 +44,6 @@ export default function NavBar() {
 
             <nav className="bg-gray-100 dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between  mx-auto p-4">
-                    {/* Logo Section */}
                     <div className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={logo} className="h-8" alt="Fresh Cart Logo" />
                     </div>
@@ -56,7 +55,6 @@ export default function NavBar() {
 
 
 
-                    {/* Mobile Menu Button */}
                     <button
                         data-collapse-toggle="navbar-sticky"
                         type="button"
@@ -82,7 +80,6 @@ export default function NavBar() {
 
 
 
-                    {/* Desktop Menu */}
                     {token &&
                         (<div className="hidden w-full md:flex md:w-auto md:order-1" >
                             <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse mt-4  md:mt-0">
@@ -112,7 +109,6 @@ export default function NavBar() {
 
 
 
-                    {/* Social Icons and User Actions (Desktop) */}
                     <div className="hidden w-full md:flex md:w-auto md:order-2 ms-48"  >
                         <ul className="flex flex-row md:flex-row md:space-x-8 rtl:space-x-reverse mt-4 md:mt-0 items-center">
                             <li className="text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
@@ -186,7 +182,6 @@ export default function NavBar() {
 
 
 
-                    {/* Mobile Menu (Hidden by default, shown on small screens) */}
 
 
                     <div className="md:hidden w-full" id="navbar-sticky">
@@ -206,7 +201,6 @@ export default function NavBar() {
                                         <NavLink to="/brands" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brands</NavLink>
                                     </li>
 
-                                    {/* Social Icons and User Actions (Mobile) */}
 
                                     <li>
                                         <NavLink to="/cart" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">

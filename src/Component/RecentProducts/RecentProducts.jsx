@@ -99,7 +99,7 @@ export default function RecentProducts() {
 
   }
   async function toggleWishlist(productId) {
-    if (wishListProductsClicked.includes(productId)) {
+    if (wishListProductsClicked?.includes(productId)) {
       const data = await deletWishList(productId)
       getWishListProduct()
 
