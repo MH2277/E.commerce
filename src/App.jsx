@@ -1,8 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.css';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Pages/Home/Home'
 import Brands from './Pages/Brands/Brands';
@@ -16,6 +12,26 @@ import { TokenContextProvider } from './Context/TokenContext';
 import ProtectedRout from './Component/ProtectedRout/ProtectedRout';
 import NotFound from './Pages/NotFound/NotFound';
 import ProductDetails from './Component/ProductDetails/ProductDetails';
+import { Offline, Online } from "react-detect-offline";
+import { CiWifiOff } from "react-icons/ci";
+import { CartContextProvider } from './Context/CartContext';
+import toast, { Toaster } from 'react-hot-toast';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import ChekOut from './Component/ChekOut/ChekOut';
+import CategoriesItem from './Pages/CategoriesItem/CategoriesItem';
+import WishListContextProvider from './Context/WishListContext';
+import ForgetPassword from './Pages/ForgetPassword/ForgetPassword';
+import VerifyResetCode from './Pages/VerifyResetCode/VerifyResetCode';
+import AllOrders from './Pages/AllOrders/AllOrders';
+import WishList from './Pages/wishList/wishList';
+import ResetPassword from './Pages/ResetPassword/ResetPassword';
+
+
+
+
+
 
 
 
@@ -25,18 +41,27 @@ function App() {
     {
       path: '', element: <MainBage />, children: [
 
-        { index: true, element:<ProtectedRout> <Home /></ProtectedRout> },
-        { path: 'Products', element: <ProtectedRout> <Products /></ProtectedRout>},
+        { index: true, element: <ProtectedRout> <Home /></ProtectedRout> },
+        { path: 'products', element: <ProtectedRout> <Products /></ProtectedRout> },
         { path: 'Cart', element: <ProtectedRout> <Cart /></ProtectedRout> },
-        { path: 'Categories', element: <ProtectedRout> <Categories /></ProtectedRout> },
-        { path: 'Brands', element:<ProtectedRout> <Brands /></ProtectedRout> },
-        { path: 'ProductDetails/:id', element:<ProtectedRout> <ProductDetails /></ProtectedRout> },
+        { path: 'categories', element: <ProtectedRout> <Categories /></ProtectedRout> },
+        { path: 'categories/:name/:id', element: <ProtectedRout> <CategoriesItem /></ProtectedRout> },
+        { path: 'brands', element: <ProtectedRout> <Brands /></ProtectedRout> },
+        { path: 'ProductDetails/:id', element: <ProtectedRout> <ProductDetails /></ProtectedRout> },
+        { path: 'products/ProductDetails/:id', element: <ProtectedRout> <ProductDetails /></ProtectedRout> },
+        { path: 'allorders', element: <ProtectedRout> <AllOrders /></ProtectedRout> },
+        { path: 'wishList', element: <ProtectedRout> <WishList /></ProtectedRout> },
         { path: 'Register', element: <Register /> },
+        { path: 'ChekOut', element: <ProtectedRout> < ChekOut /></ProtectedRout> },
         { path: 'Login', element: <Login /> },
+        { path: 'forgetPassword', element: <ForgetPassword/> },
+        { path: 'verifyResetCode', element: <VerifyResetCode/> },
+        { path: 'resetPassword', element: <ResetPassword/> },
+
         { path: '*', element: <NotFound /> },
 
-        
-        
+
+
 
 
 
@@ -49,7 +74,21 @@ function App() {
   return (
     <>
       <TokenContextProvider>
-          <RouterProvider router={router}> </RouterProvider>
+        <CartContextProvider>
+          <WishListContextProvider>
+       
+          <div className='position-fixed end-0 bottom-0 z-3  fs-5 me-0 rounded w-25 text-center bg-gray-500'>
+           <Offline> <CiWifiOff />  You Are offline Now</Offline>
+          </div>
+          <RouterProvider router={router}>
+          </RouterProvider>
+          <Toaster />
+
+          </WishListContextProvider>
+
+        </CartContextProvider>
+
+
       </TokenContextProvider>
 
 

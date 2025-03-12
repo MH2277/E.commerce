@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useFormik, yupToFormErrors } from "formik"
+import { useFormik } from "formik"
 import axios from 'axios'
 import * as Yup from "yup"
 import { FaSpinner } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
@@ -82,7 +82,7 @@ export default function Register() {
 
 
 
-      <div className="row justify-content-center  align-items-center">
+      <div className="row justify-content-center  align-items-center mt-5">
 
 
         <div className="col-xl-6  p-5   ">
@@ -96,7 +96,7 @@ export default function Register() {
             {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null} </div >
 
 
-          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 ' >
+          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 p-2' >
 
 
 
@@ -133,7 +133,9 @@ export default function Register() {
             {formik.errors.phone ? <div className="alert alert-danger " role="alert">{formik.errors.phone} </div> : null}
 
 
-            <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Submit'}</button>
+            <button type='submit' className='btn btn-success w-25 flex justify-items-center  '> {Loading ? <FaSpinner /> : 'Submit'}</button>
+
+            <Link to={('/Login')}> <span className='underline text-blue-800 ms-2'>I Already Have Account</span>  </Link>
 
           </form>
 

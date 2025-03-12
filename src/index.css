@@ -1,62 +1,97 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 
+/*  home page - main slider */
 
-
-.decoration{
-    text-decoration:none;
-    color: black;
-}
-
-.slick-prev::before, .slick-next::before {
-
-color: green !important;
-}
-
-
-
-
-
-.pic1{
+.pic1 {
     height: 250px;
-
-    
 }
 
-
-.pic2{
+.pic2 {
     height: 500px;
-
-
-}
-.product{
-    border:transparent
 }
 
-.p-hover:hover{
-    border: 2px  rgb(44, 204, 79) ;
-    border-style: solid;
-    border-radius: 10px;
 
-}
 
-.category-style{
+/*  home page - category slider */
+
+.category-style {
     height: 300px;
 
 }
 
+.slick-prev::before,
+.slick-next::before {
+
+    color: green !important;
+}
 
 
-.product .btn{
-    transition: transform 1s,opcity 1s;
+
+/*  home page- product */
+
+.decoration {
+    text-decoration: none;
+    color: black;
+}
+
+.product{
+    border-radius: 10px ;
+
+}   
+.product:hover {
+    border-radius: 10px ;
+    border: 5px  ;
+    box-shadow: 0px 0px 10px rgb(179, 216, 179);
+}
+
+.product .btn {
+    transition: transform .5s, opcity 1s;
     transform: translateY(100%);
     opacity: 0;
 
 }
-.product:hover .btn{
+
+.product:hover .btn {
     opacity: 1;
-   transform:  translateY(0);
+    transform: translateY(0);
+
+}
+
+
+/*  cart page */
+
+.cart-decoration{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(36, 214, 36);
+    position:absolute;
+   right: -13px;
+   top: -13px;
+   
+    
+    
+}
+
+
+
+a.active{
+    color: green !important;
+    font-weight:500;
+    text-decoration: solid 2px black !important;
+}
+
+a{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+
+/*  brands page */
+.line{
+    text-decoration: none;
 
 }

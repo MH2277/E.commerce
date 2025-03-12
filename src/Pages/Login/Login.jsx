@@ -83,7 +83,7 @@ export default function Login() {
 
     <>
 
-      <div className="row justify-content-center  align-items-center">
+      <div className="row justify-content-center  align-items-center mt-5 w-full">
 
 
         <div className="col-xl-6  p-5   ">
@@ -97,10 +97,7 @@ export default function Login() {
             {ApiError ? <div className="alert alert-danger " role="alert">{ApiError} </div> : null} </div >
 
 
-          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 ' >
-
-
-
+          <form onSubmit={formik.handleSubmit} className='bg-light rounded-3 p-2 '>
 
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Email:</label>
@@ -118,12 +115,14 @@ export default function Login() {
 
 
 
-            <button type='submit' className='btn btn-success w-25'> {Loading ? <FaSpinner /> : 'Login'}</button>
+            <button type='submit' className='btn btn-success w-25  flex justify-items-center  '> {Loading ? <FaSpinner /> : 'Login'}</button>
+            < Link to={'/Register'}> <span className='underline text-blue-800 ms-2' >creat new account account</span></Link>
           </form>
 
-            <Link to={'Register'}> creat new account account</Link>
+          <div >
+          < Link to={'/forgetPassword'}> <span className='underline text-blue-800'>Forget Password ?</span></Link>
+          </div>
 
-          <div />
 
 
 

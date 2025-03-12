@@ -34,9 +34,9 @@ export default function MainSlider() {
 
 
 
-      <div className="row my-5">
+      <div className="row my-5 ">
 
-        <div className="w-75  ">
+        <div className=" col-12 col-lg-8  ">
           <Slider {...settings}>
 
             <div>
@@ -60,7 +60,7 @@ export default function MainSlider() {
           </div>
 
 
-          <div className="w-25  ">
+          <div className=" col-12 col-lg-4 mt-3 mt-lg-0  ">
             <img className="w-100 pic1" src={img2} alt="" />
             <img className="w-100 pic1 " src={img3} alt="" />
           </div>
