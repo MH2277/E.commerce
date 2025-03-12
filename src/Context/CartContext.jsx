@@ -97,7 +97,7 @@ export function CartContextProvider(props) {
 
 
   async function onlinePayment(data) {
-    return await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:5173`, data, { headers })
+    return await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://freshcart-azure.vercel.app`, data, { headers })
 
       .then((response) => response)
       .catch((error) => error)
