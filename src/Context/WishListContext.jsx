@@ -1,5 +1,7 @@
 import axios from 'axios'
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { TokenContext } from './TokenContext';
+
 
 
 
@@ -14,9 +16,13 @@ import React, { createContext, useEffect, useState } from 'react'
 
 export let WishListContext = createContext()
 
-export default function WishListContextProvider(props) {
-
+export default function WishListContextProvider(props) {   
+    
+   
+    
     let headers = { token: localStorage.getItem('token') }
+
+
 
     
 

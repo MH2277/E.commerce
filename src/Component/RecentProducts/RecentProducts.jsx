@@ -11,6 +11,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { WishListContext } from "../../Context/WishListContext";
 import { Helmet } from "react-helmet";
 import { FaHeart } from "react-icons/fa";
+import { TokenContext } from "../../Context/TokenContext";
+
 
 
 
@@ -25,6 +27,7 @@ export default function RecentProducts() {
 
   let { AddToCart, setNumOfCartItems, setCartId } = useContext(cartContext)
   let { addproductToWishList, getLoggedUsetWishList, deletWishList } = useContext(WishListContext)
+  let {token}=useContext(TokenContext)
   const [recentProducts, setRecentProducts] = useState([])
 
   const [addToWishList, setAddToWishList] = useState(false)
@@ -35,7 +38,10 @@ export default function RecentProducts() {
 
     let response = await AddToCart(productId)
 
-    if (response.data?.status === 'success') {
+    if(token==null){
+      toast.error('Must Login')
+    
+    }else if (response.data?.status === 'success') {
       setNumOfCartItems(response.data.numOfCartItems);
       setCartId(response.data.cartId);
       toast.success('Product added successfully to your cart');
@@ -46,6 +52,8 @@ export default function RecentProducts() {
 
 
     }
+
+    
 
   }
 
@@ -73,7 +81,10 @@ export default function RecentProducts() {
 
     let response = await addproductToWishList(productId)
 
-    if (response.data?.status === 'success') {
+    if(token==null){
+      toast.error('Must Login')}
+
+     else if (response.data?.status === 'success') {
 
       toast.success('Product added successfully to your Wish-List');
       setAddToWishList()

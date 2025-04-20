@@ -9,6 +9,8 @@ export function TokenContextProvider(props) {
 const [token, setToken] = useState(null)
 
 useEffect(() => {
+
+  
   if(localStorage.getItem('token')){
     setToken(localStorage.getItem('token'))
     

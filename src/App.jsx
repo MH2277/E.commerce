@@ -41,16 +41,16 @@ function App() {
     {
       path: '', element: <MainBage />, children: [
 
-        { index: true, element: <ProtectedRout> <Home /></ProtectedRout> },
-        { path: 'products', element: <ProtectedRout> <Products /></ProtectedRout> },
-        { path: 'Cart', element: <ProtectedRout> <Cart /></ProtectedRout> },
-        { path: 'categories', element: <ProtectedRout> <Categories /></ProtectedRout> },
-        { path: 'categories/:name/:id', element: <ProtectedRout> <CategoriesItem /></ProtectedRout> },
-        { path: 'brands', element: <ProtectedRout> <Brands /></ProtectedRout> },
-        { path: 'ProductDetails/:id', element: <ProtectedRout> <ProductDetails /></ProtectedRout> },
-        { path: 'products/ProductDetails/:id', element: <ProtectedRout> <ProductDetails /></ProtectedRout> },
-        { path: 'allorders', element: <ProtectedRout> <AllOrders /></ProtectedRout> },
-        { path: 'wishList', element: <ProtectedRout> <WishList /></ProtectedRout> },
+        { index: true, element:  <Home /> },
+        { path: 'products', element:  <Products /> },
+        { path: 'Cart', element:  <Cart /> },
+        { path: 'categories', element:  <Categories /> },
+        { path: 'categories/:name/:id', element:  <CategoriesItem /> },
+        { path: 'brands', element: <Brands /> },
+        { path: 'ProductDetails/:id', element:  <ProductDetails /> },
+        { path: 'products/ProductDetails/:id', element:  <ProductDetails /> },
+        { path: 'allorders', element:  <AllOrders /> },
+        { path: 'wishList', element:  <WishList />},
         { path: 'Register', element: <Register /> },
         { path: 'ChekOut', element: <ProtectedRout> < ChekOut /></ProtectedRout> },
         { path: 'Login', element: <Login /> },
@@ -78,7 +78,7 @@ function App() {
           <WishListContextProvider>
        
           <div className='position-fixed end-0 bottom-0 z-3  fs-5 me-0 rounded w-25 text-center bg-gray-500'>
-           <Offline> <CiWifiOff />  You Are offline Now</Offline>
+           <Offline> <CiWifiOff /> You Are offline Now  </Offline>
           </div>
           <RouterProvider router={router}>
           </RouterProvider>

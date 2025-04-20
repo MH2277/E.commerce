@@ -26,7 +26,7 @@ export default function NavBar() {
 
     let { token, setToken } = useContext(TokenContext)
 
- 
+
     function logoutUser() {
         localStorage.removeItem('token')
         navigate('Login')
@@ -43,7 +43,7 @@ export default function NavBar() {
 
 
             <nav className="bg-gray-100 dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between  mx-auto p-4">
+                <div className="max-w-screen-xl  flex items-center justify-between  mx-auto p-4">
                     <div className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={logo} className="h-8" alt="Fresh Cart Logo" />
                     </div>
@@ -80,23 +80,23 @@ export default function NavBar() {
 
 
 
-                    {token &&
-                        (<div className="hidden w-full md:flex md:w-auto md:order-1" >
-                            <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse mt-4  md:mt-0">
-                                <li>
-                                    <NavLink to="/" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/products" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Products</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/categories" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Categories</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/brands" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brands</NavLink>
-                                </li>
-                            </ul>
-                        </div>)}
+
+                    <div className="hidden w-full md:flex md:w-auto md:order-1" >
+                        <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse mt-4  md:mt-0">
+                            <li>
+                                <NavLink to="/" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/products" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Products</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/categories" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Categories</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/brands" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brands</NavLink>
+                            </li>
+                        </ul>
+                    </div>
 
 
 
@@ -130,7 +130,7 @@ export default function NavBar() {
                                 <FaYoutube />
                             </li>
 
-                            {token && (
+                            {/* {token && ( */}
                                 <>
                                     <li>
                                         <NavLink to="/cart" className="text-decoration-none text-dark d-flex fs-5 position-relative">
@@ -144,7 +144,7 @@ export default function NavBar() {
                                         </NavLink>
                                     </li>
                                 </>
-                            )}
+                            {/* )} */}
 
                             {token ? (
                                 <li>
@@ -173,7 +173,7 @@ export default function NavBar() {
 
 
 
-          
+
 
 
 
