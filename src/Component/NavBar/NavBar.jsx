@@ -42,18 +42,14 @@ export default function NavBar() {
         <>
 
 
+
+
+
             <nav className="bg-gray-100 dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-                <div className="max-w-screen-xl  flex items-center justify-between  mx-auto p-4">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <div className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={logo} className="h-8" alt="Fresh Cart Logo" />
                     </div>
-
-
-
-
-
-
-
 
                     <button
                         data-collapse-toggle="navbar-sticky"
@@ -68,21 +64,8 @@ export default function NavBar() {
                         </svg>
                     </button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div className="hidden w-full md:flex md:w-auto md:order-1" >
-                        <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse mt-4  md:mt-0">
+                    <div className="hidden md:flex md:order-1 md:w-auto md:grow">
+                        <ul className="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse mt-4 md:mt-0">
                             <li>
                                 <NavLink to="/" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Home</NavLink>
                             </li>
@@ -98,19 +81,8 @@ export default function NavBar() {
                         </ul>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-                    <div className="hidden w-full md:flex md:w-auto md:order-2 ms-48"  >
-                        <ul className="flex flex-row md:flex-row md:space-x-8 rtl:space-x-reverse mt-4 md:mt-0 items-center">
+                    <div className="hidden md:flex md:order-2">
+                        <ul className="flex items-center space-x-6 rtl:space-x-reverse">
                             <li className="text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
                                 <FaInstagram />
                             </li>
@@ -130,7 +102,7 @@ export default function NavBar() {
                                 <FaYoutube />
                             </li>
 
-                            {/* {token && ( */}
+                            {token && (
                                 <>
                                     <li>
                                         <NavLink to="/cart" className="text-decoration-none text-dark d-flex fs-5 position-relative">
@@ -144,7 +116,7 @@ export default function NavBar() {
                                         </NavLink>
                                     </li>
                                 </>
-                            {/* )} */}
+                            )}
 
                             {token ? (
                                 <li>
@@ -169,39 +141,23 @@ export default function NavBar() {
                         </ul>
                     </div>
 
+                    <div className="hidden w-full md:hidden" id="navbar-sticky">
+                        <ul className="flex flex-col space-y-4 py-4">
+                            <li>
+                                <NavLink to="/" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/products" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Products</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/categories" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Categories</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/brands" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brands</NavLink>
+                            </li>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div className="md:hidden w-full" id="navbar-sticky">
-                        <ul className="flex flex-col space-y-2 mt-4">
                             {token && (
                                 <>
-                                    <li>
-                                        <NavLink to="/" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Home</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/products" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Products</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/categories" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Categories</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/brands" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brands</NavLink>
-                                    </li>
-
-
                                     <li>
                                         <NavLink to="/cart" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
                                             Cart ({numOfCartItems})
@@ -212,19 +168,29 @@ export default function NavBar() {
                                             Wishlist
                                         </NavLink>
                                     </li>
-
-                                    <li>
-                                        <NavLink to="/Login" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300" onClick={logoutUser}>
-                                            Sign Out
-                                        </NavLink>
-                                    </li>
-
                                 </>
                             )}
 
-                            {!token && (
+                            <li className="flex items-center space-x-4 pt-4">
+                                <FaInstagram className="text-black dark:text-white" />
+                                <FaFacebook className="text-black dark:text-white" />
+                                <FaTiktok className="text-black dark:text-white" />
+                                <FaTwitter className="text-black dark:text-white" />
+                                <FaLinkedin className="text-black dark:text-white" />
+                                <FaYoutube className="text-black dark:text-white" />
+                            </li>
 
-
+                            {token ? (
+                                <li>
+                                    <NavLink
+                                        to="/Login"
+                                        className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+                                        onClick={logoutUser}
+                                    >
+                                        Sign Out
+                                    </NavLink>
+                                </li>
+                            ) : (
                                 <>
                                     <li>
                                         <NavLink to="/Login" className="block no-underline text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
@@ -242,9 +208,6 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
-
-
-
 
         </>
     )
